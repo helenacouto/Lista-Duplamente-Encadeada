@@ -210,6 +210,7 @@ int busca_lista_mat(Lista* li, int mat, struct aluno *al) {
     }
 }
 
+/*=========== QUESTÃO 1 ===========*/
 void imprime_lista_inversa(Lista* li) {
     if (li == NULL || *li == NULL) {
         printf("(lista vazia)\n");
@@ -227,6 +228,7 @@ void imprime_lista_inversa(Lista* li) {
     return;
 }
 
+/*=========== QUESTÃO 2 ===========*/
 int lista_consistente(Lista* li) {
     if (li == NULL) return 0;
     if (*li == NULL) return 1;
@@ -240,3 +242,54 @@ int lista_consistente(Lista* li) {
     }
     return 1;
 }
+
+/*=========== QUESTÃO 3 ===========*/
+/*
+Considere o código:
+int remove_lista(Lista* li, int mat){
+    if(li == NULL) return 0;
+    if((*li) == NULL) return 0;
+    Elem* no = *li;
+    while(no != NULL && no->dados.matricula != mat)
+        no = no->prox;
+    if(no == NULL) return 0;
+    no->ant->prox = no->prox;
+    free(no);
+    return 1;
+}
+
+a) Considerando a lista '{33, 23, 16}', ao realizar a chamada
+remove_lista(li, 33) a função vai tentar a acessar o nó anterior
+ao 33, porém é NULL já que 33 é o primeiro item da lista.
+
+b) Considerando novamente a litsa '{33, 23, 16}', ao realizar a
+chamada remove_lista(li, 23) aqui está o panorama dos nós:
+[33]->ant: NULL
+[33]->prox: [16]
+[16]->ant: (antigo endereço liberado de [23])
+[16]->prox: NULL
+
+A função tamanho_lista devolve 2 porque ele vai contar através dos ->prox.
+Enquanto lista_consistente vai verificar o ->ant e é quando via perceber
+que o ->ant do nó [16] não foi configurado corretamente ao remover [23].
+
+Código corrigido já foi implementado pela biblioteca anteriormente:
+int remove_lista(Lista* li, int mat) {
+    if (li == NULL) return 0;
+    if ((*li) == NULL) return 0;
+    Elem* no = *li;
+    while (no != NULL && no->dados.matricula != mat)
+        no = no->prox;
+    if (no == NULL)
+        return 0;
+    if (no->ant == NULL)
+        *li = no->prox;
+    else
+        no->ant->prox = no->prox;
+    if (no->prox != NULL)
+        no->prox->ant = no->ant;
+    free(no);
+    return 1;
+}
+*/
+

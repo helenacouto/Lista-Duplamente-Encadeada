@@ -73,21 +73,21 @@ int main(void) {
         printf("  NULL         -> %d (esperado 0)\n", lista_consistente(NULL));
     }
 
-    // /* ---------- Questao 3 ---------- */
-    // titulo("Q3 - remove_lista corrigida em [33, 23, 16]");
-    // {
-    //     int m[] = {33, 23, 16};
-    //     li = monta(m, 3);
-    //     imprime("antes", li);
-    //     remove_lista(li, 23);
-    //     imprime("remove do meio", li);
-    //     remove_lista(li, 33);
-    //     imprime("remove do inicio", li);
-    //     remove_lista(li, 16);
-    //     imprime("remove o unico", li);
-    //     printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
-    // }
+    /* ---------- Questao 3 ---------- */
+    titulo("Q3 - remove_lista corrigida em [33, 23, 16]");
+    {
+        int m[] = {33, 23, 16};
+        li = monta(m, 3);
+        imprime("antes", li);
+        remove_lista(li, 23);
+        imprime("remove do meio", li);
+        remove_lista(li, 33);
+        imprime("remove do inicio", li);
+        remove_lista(li, 16);
+        imprime("remove o unico", li);
+        printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
+    }
 
     // /* ---------- Questao 4 ---------- */
     // titulo("Q4 - remove_lista_pos em [10, 20, 30, 40, 50]");
