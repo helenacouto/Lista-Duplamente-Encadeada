@@ -60,18 +60,18 @@ int main(void) {
         imprime_lista_inversa(NULL);
     }
 
-    // /* ---------- Questao 2 ---------- */
-    // titulo("Q2 - lista_consistente");
-    // {
-    //     int m[] = {33, 23, 16};
-    //     li = monta(m, 3);
-    //     printf("  [33, 23, 16] -> %d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
-    //     li = cria_lista();
-    //     printf("  vazia        -> %d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
-    //     printf("  NULL         -> %d (esperado 0)\n", lista_consistente(NULL));
-    // }
+    /* ---------- Questao 2 ---------- */
+    titulo("Q2 - lista_consistente");
+    {
+        int m[] = {33, 23, 16};
+        li = monta(m, 3);
+        printf("  [33, 23, 16] -> %d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
+        li = cria_lista();
+        printf("  vazia        -> %d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
+        printf("  NULL         -> %d (esperado 0)\n", lista_consistente(NULL));
+    }
 
     // /* ---------- Questao 3 ---------- */
     // titulo("Q3 - remove_lista corrigida em [33, 23, 16]");

@@ -219,10 +219,24 @@ void imprime_lista_inversa(Lista* li) {
     Elem *no = *li;
     while (no->prox != NULL) no = no->prox;
 
-    while(no != NULL) {
+    while (no != NULL) {
         printf("%d ", no->dados.matricula);
         no = no->ant;
     }
     printf("\n");
     return;
+}
+
+int lista_consistente(Lista* li) {
+    if (li == NULL) return 0;
+    if (*li == NULL) return 1;
+
+    Elem *no = *li;
+    if (no->ant != NULL) return 0;
+
+    while (no->prox != NULL) {
+        if (no->prox->ant != no) return 0;
+        no = no->prox;
+    }
+    return 1;
 }
