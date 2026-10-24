@@ -210,4 +210,19 @@ int busca_lista_mat(Lista* li, int mat, struct aluno *al) {
     }
 }
 
+void imprime_lista_inversa(Lista* li) {
+    if (li == NULL || *li == NULL) {
+        printf("(lista vazia)\n");
+        return;
+    }
 
+    Elem *no = *li;
+    while (no->prox != NULL) no = no->prox;
+
+    while(no != NULL) {
+        printf("%d ", no->dados.matricula);
+        no = no->ant;
+    }
+    printf("\n");
+    return;
+}

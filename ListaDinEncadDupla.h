@@ -94,4 +94,13 @@ int busca_lista_pos(Lista* li, int pos, struct aluno *al);
 /* Busca pelo conteudo do campo matricula. Custo O(n). */
 int busca_lista_mat(Lista* li, int mat, struct aluno *al);
 
+/*============== ATIVIDADE ==============*/
+void imprime_lista_inversa(Lista* li);
+int lista_consistente(Lista* li);
+int remove_lista_pos(Lista* li, int pos);
+int move_para_inicio(Lista* li, int mat);
+int remove_todos(Lista* li, int mat);
+void inverte_lista(Lista* li);
+int eh_palindromo(Lista* li);
+
 #endif /* LISTA_DIN_ENCAD_DUPLA_H */
