@@ -293,3 +293,24 @@ int remove_lista(Lista* li, int mat) {
 }
 */
 
+/*=========== QUESTÃO 4 ===========*/
+int remove_lista_pos(Lista *li, int pos) {
+    if (li == NULL || *li == NULL) return 0;
+    if (pos < 1 || pos > tamanho_lista(li)) return 0;
+
+    Elem *no = *li;
+
+    for (int i = 0; i < pos - 1; i++)
+        no = no->prox;
+    
+    if (no->ant == NULL) {
+        *li = no->prox;
+    } else {
+        no->ant->prox = no->prox;
+    }
+    if (no->prox != NULL) {
+        no->prox->ant = no->ant;
+    }
+    free(no);
+    return 1;
+}

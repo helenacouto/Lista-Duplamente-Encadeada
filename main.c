@@ -89,22 +89,22 @@ int main(void) {
         libera_lista(li);
     }
 
-    // /* ---------- Questao 4 ---------- */
-    // titulo("Q4 - remove_lista_pos em [10, 20, 30, 40, 50]");
-    // {
-    //     int m[] = {10, 20, 30, 40, 50};
-    //     li = monta(m, 5);
-    //     imprime("antes", li);
-    //     remove_lista_pos(li, 3);
-    //     imprime("pos 3 (meio)", li);
-    //     remove_lista_pos(li, 4);
-    //     imprime("pos 4 (ultima)", li);
-    //     remove_lista_pos(li, 1);
-    //     imprime("pos 1 (primeira)", li);
-    //     printf("  pos 9 devolve %d (esperado 0)\n", remove_lista_pos(li, 9));
-    //     printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
-    // }
+    /* ---------- Questao 4 ---------- */
+    titulo("Q4 - remove_lista_pos em [10, 20, 30, 40, 50]");
+    {
+        int m[] = {10, 20, 30, 40, 50};
+        li = monta(m, 5);
+        imprime("antes", li);
+        remove_lista_pos(li, 3);
+        imprime("pos 3 (meio)", li);
+        remove_lista_pos(li, 4);
+        imprime("pos 4 (ultima)", li);
+        remove_lista_pos(li, 1);
+        imprime("pos 1 (primeira)", li);
+        printf("  pos 9 devolve %d (esperado 0)\n", remove_lista_pos(li, 9));
+        printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
+    }
 
     // /* ---------- Questao 5 ---------- */
     // titulo("Q5 - move_para_inicio em [10, 20, 30, 40]");
