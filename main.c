@@ -106,22 +106,22 @@ int main(void) {
         libera_lista(li);
     }
 
-    // /* ---------- Questao 5 ---------- */
-    // titulo("Q5 - move_para_inicio em [10, 20, 30, 40]");
-    // {
-    //     int m[] = {10, 20, 30, 40};
-    //     li = monta(m, 4);
-    //     imprime("antes", li);
-    //     move_para_inicio(li, 30);
-    //     imprime("move 30 (meio)", li);
-    //     move_para_inicio(li, 40);
-    //     imprime("move 40 (ultimo)", li);
-    //     printf("  move 40 (ja e o primeiro) devolve %d (esperado 1)\n",
-    //            move_para_inicio(li, 40));
-    //     printf("  move 99 devolve %d (esperado 0)\n", move_para_inicio(li, 99));
-    //     printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
-    // }
+    /* ---------- Questao 5 ---------- */
+    titulo("Q5 - move_para_inicio em [10, 20, 30, 40]");
+    {
+        int m[] = {10, 20, 30, 40};
+        li = monta(m, 4);
+        imprime("antes", li);
+        move_para_inicio(li, 30);
+        imprime("move 30 (meio)", li);
+        move_para_inicio(li, 40);
+        imprime("move 40 (ultimo)", li);
+        printf("  move 40 (ja e o primeiro) devolve %d (esperado 1)\n",
+               move_para_inicio(li, 40));
+        printf("  move 99 devolve %d (esperado 0)\n", move_para_inicio(li, 99));
+        printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
+    }
 
     // /* ---------- Questao 6 ---------- */
     // titulo("Q6 - remove_todos(7)");

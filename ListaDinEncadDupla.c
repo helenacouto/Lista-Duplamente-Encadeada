@@ -314,3 +314,22 @@ int remove_lista_pos(Lista *li, int pos) {
     free(no);
     return 1;
 }
+
+/*=========== QUESTÃO 5 ===========*/
+int move_para_inicio(Lista* li, int mat) {
+    if (li == NULL || *li == NULL) return 0;
+    if ((*li)->dados.matricula == mat) return 1;
+
+    Elem* no = (*li)->prox;
+    while (no != NULL && no->dados.matricula != mat) {
+        no = no->prox;
+    }
+
+    if (no == NULL) return 0;
+    no->ant->prox = no->prox;
+    no->prox = *li;
+    no->ant = NULL;
+    (*li)->ant = no;
+    *li = no;
+    return 1;
+}
