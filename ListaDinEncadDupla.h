@@ -94,7 +94,7 @@ int busca_lista_pos(Lista* li, int pos, struct aluno *al);
 /* Busca pelo conteudo do campo matricula. Custo O(n). */
 int busca_lista_mat(Lista* li, int mat, struct aluno *al);
 
-/*============== ATIVIDADE ==============*/
+/* ======================== ATIVIDADE ========================= */
 void imprime_lista_inversa(Lista* li);
 int lista_consistente(Lista* li);
 int remove_lista_pos(Lista* li, int pos);

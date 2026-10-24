@@ -210,7 +210,7 @@ int busca_lista_mat(Lista* li, int mat, struct aluno *al) {
     }
 }
 
-/*=========== QUESTÃO 1 ===========*/
+/* =========== QUESTÃO 1 =========== */
 void imprime_lista_inversa(Lista* li) {
     if (li == NULL || *li == NULL) {
         printf("(lista vazia)\n");
@@ -228,7 +228,7 @@ void imprime_lista_inversa(Lista* li) {
     return;
 }
 
-/*=========== QUESTÃO 2 ===========*/
+/* =========== QUESTÃO 2 =========== */
 int lista_consistente(Lista* li) {
     if (li == NULL) return 0;
     if (*li == NULL) return 1;
@@ -243,7 +243,7 @@ int lista_consistente(Lista* li) {
     return 1;
 }
 
-/*=========== QUESTÃO 3 ===========*/
+/* =========== QUESTÃO 3 =========== */
 /*
 Considere o código:
 int remove_lista(Lista* li, int mat){
@@ -293,7 +293,7 @@ int remove_lista(Lista* li, int mat) {
 }
 */
 
-/*=========== QUESTÃO 4 ===========*/
+/* =========== QUESTÃO 4 =========== */
 int remove_lista_pos(Lista *li, int pos) {
     if (li == NULL || *li == NULL) return 0;
     if (pos < 1 || pos > tamanho_lista(li)) return 0;
@@ -315,7 +315,7 @@ int remove_lista_pos(Lista *li, int pos) {
     return 1;
 }
 
-/*=========== QUESTÃO 5 ===========*/
+/* =========== QUESTÃO 5 =========== */
 int move_para_inicio(Lista* li, int mat) {
     if (li == NULL || *li == NULL) return 0;
     if ((*li)->dados.matricula == mat) return 1;
@@ -324,9 +324,12 @@ int move_para_inicio(Lista* li, int mat) {
     while (no != NULL && no->dados.matricula != mat) {
         no = no->prox;
     }
-
     if (no == NULL) return 0;
+
     no->ant->prox = no->prox;
+    if (no->prox != NULL) 
+        no->prox->ant = no->ant;
+
     no->prox = *li;
     no->ant = NULL;
     (*li)->ant = no;
