@@ -210,7 +210,12 @@ int busca_lista_mat(Lista* li, int mat, struct aluno *al) {
     }
 }
 
-/* =========== QUESTÃO 1 =========== */
+/* =========== QUESTAO 1 =========== */
+/*
+Custo O(n). O primeiro laco chega ao ultimo elemento por prox em n-1 passos
+e o segundo volta ate o primeiro por ant em mais n-1 passos. Cada elemento e
+visitado duas vezes, ou seja, 2n passos, que e O(n). Memoria extra O(1).
+*/
 void imprime_lista_inversa(Lista* li) {
     if (li == NULL || *li == NULL) {
         printf("(lista vazia)\n");
@@ -228,7 +233,7 @@ void imprime_lista_inversa(Lista* li) {
     return;
 }
 
-/* =========== QUESTÃO 2 =========== */
+/* =========== QUESTAO 2 =========== */
 int lista_consistente(Lista* li) {
     if (li == NULL) return 0;
     if (*li == NULL) return 1;
@@ -243,9 +248,9 @@ int lista_consistente(Lista* li) {
     return 1;
 }
 
-/* =========== QUESTÃO 3 =========== */
+/* =========== QUESTAO 3 =========== */
 /*
-Considere o código:
+Considere o codigo:
 int remove_lista(Lista* li, int mat){
     if(li == NULL) return 0;
     if((*li) == NULL) return 0;
@@ -259,21 +264,21 @@ int remove_lista(Lista* li, int mat){
 }
 
 a) Considerando a lista '{33, 23, 16}', ao realizar a chamada
-remove_lista(li, 33) a função vai tentar a acessar o nó anterior
-ao 33, porém é NULL já que 33 é o primeiro item da lista.
+remove_lista(li, 33) a funcao vai tentar a acessar o no anterior
+ao 33, porem e NULL ja que 33 e o primeiro item da lista.
 
 b) Considerando novamente a litsa '{33, 23, 16}', ao realizar a
-chamada remove_lista(li, 23) aqui está o panorama dos nós:
+chamada remove_lista(li, 23) aqui esta o panorama dos nos:
 [33]->ant: NULL
 [33]->prox: [16]
-[16]->ant: (antigo endereço liberado de [23])
+[16]->ant: (antigo endereco liberado de [23])
 [16]->prox: NULL
 
-A função tamanho_lista devolve 2 porque ele vai contar através dos ->prox.
-Enquanto lista_consistente vai verificar o ->ant e é quando via perceber
-que o ->ant do nó [16] não foi configurado corretamente ao remover [23].
+A funcao tamanho_lista devolve 2 porque ele vai contar atraves dos ->prox.
+Enquanto lista_consistente vai verificar o ->ant e e quando via perceber
+que o ->ant do no [16] nao foi configurado corretamente ao remover [23].
 
-Código corrigido já foi implementado pela biblioteca anteriormente:
+Codigo corrigido ja foi implementado pela biblioteca anteriormente:
 int remove_lista(Lista* li, int mat) {
     if (li == NULL) return 0;
     if ((*li) == NULL) return 0;
@@ -293,7 +298,13 @@ int remove_lista(Lista* li, int mat) {
 }
 */
 
-/* =========== QUESTÃO 4 =========== */
+/* =========== QUESTAO 4 =========== */
+/*
+Custo O(n). O tamanho_lista percorre a lista inteira (n passos) para validar
+pos, e o for avanca ate pos-1 passos. Isso vale ate para pos = 1, por causa do
+tamanho_lista. Depois de localizado o no, a remocao em si e O(1): o antecessor
+vem de no->ant, sem segundo ponteiro de percurso.
+*/
 int remove_lista_pos(Lista *li, int pos) {
     if (li == NULL || *li == NULL) return 0;
     if (pos < 1 || pos > tamanho_lista(li)) return 0;
@@ -315,10 +326,18 @@ int remove_lista_pos(Lista *li, int pos) {
     return 1;
 }
 
-/* =========== QUESTÃO 5 =========== */
+/* =========== QUESTAO 5 =========== */
 /*
-Resposta:
+Elemento no meio da lista: 5 campos de ponteiro nos nos (6 escritas contando *li).
+  1. no->ant->prox = no->prox   o anterior passa a pular o no
+  2. no->prox->ant = no->ant    o seguinte aponta para o anterior
+  3. no->prox = *li             o no aponta para o antigo primeiro
+  4. no->ant = NULL             o no passa a nao ter antecessor
+  5. (*li)->ant = no            o antigo primeiro aponta de volta para o no
+  Alem disso, *li = no atualiza o inicio.
 
+Elemento no final: 4 campos (5 contando *li). Como nao existe seguinte,
+no->prox e NULL e o if da escrita 2 nao executa. Nenhum malloc nem free.
 */
 int move_para_inicio(Lista* li, int mat) {
     if (li == NULL || *li == NULL) return 0;
@@ -341,7 +360,7 @@ int move_para_inicio(Lista* li, int mat) {
     return 1;
 }
 
-/* =========== QUESTÃO 6 =========== */
+/* =========== QUESTAO 6 =========== */
 int remove_todos(Lista* li, int mat) {
     if (li == NULL || *li == NULL) return 0;
 
@@ -375,7 +394,17 @@ int remove_todos(Lista* li, int mat) {
     return cont;
 }
 
-/* =========== QUESTÃO 7 =========== */
+/* =========== QUESTAO 7 =========== */
+/*
+Justificativa: na lista invertida, o sucessor de cada no e o seu antigo
+antecessor, e o antecessor e o seu antigo sucessor. Trocar ant e prox em cada
+no faz exatamente isso. Como os dois campos ja eram coerentes entre si, a
+lista invertida tambem fica coerente: nenhuma ligacao e criada ou desfeita,
+so reinterpretada. O inicio precisa ser atualizado para o antigo ultimo, pois
+o antigo primeiro agora tem prox NULL e passa a ser o fim.
+
+Custo O(n): um passo por no, com trabalho constante em cada um e sem alocacao.
+*/
 void inverte_lista(Lista* li) {
     if (li == NULL || *li == NULL) return;
 
@@ -396,10 +425,20 @@ void inverte_lista(Lista* li) {
     return;
 }
 
-/* =========== QUESTÃO 8 =========== */
+/* =========== QUESTAO 8 =========== */
 /*
-Resposta:
+Condicao de parada: com n elementos, bastam n/2 comparacoes (divisao inteira).
+Se n e par, os dois ponteiros se cruzam depois da ultima comparacao. Se n e
+impar, o elemento do meio sobra e nao precisa ser comparado consigo mesmo.
+Lista com 0 ou 1 elemento e palindroma sem comparar nada.
 
+Custo: O(n). Chegar ao ultimo elemento por prox custa n passos, e as n/2
+comparacoes custam mais n passos de ponteiro. A memoria extra e O(1).
+
+Lista simples: a estrategia exige recuar a partir do final, e sem o campo ant
+isso nao existe. Para recuar um no seria preciso percorrer a lista desde o
+inicio, o que custaria O(n) por passo e O(n^2) no total. As alternativas seriam
+um vetor auxiliar ou alterar a lista, e o enunciado proibe as duas.
 */
 int eh_palindromo(Lista *li) {
     if (li == NULL) return 0;
