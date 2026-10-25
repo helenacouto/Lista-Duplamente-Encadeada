@@ -374,3 +374,23 @@ int remove_todos(Lista* li, int mat) {
 
     return cont;
 }
+
+void inverte_lista(Lista* li) {
+    if (li == NULL || *li == NULL) return;
+
+    Elem *no = *li, *ante = NULL;
+
+    while (no->prox != NULL) {
+        no->ant = no->prox;
+        no->prox = ante;
+        ante = no;
+        no = no->ant;
+    }
+
+    if (no->ant != NULL) {
+        no->prox = ante;
+        no->ant = NULL;
+        *li = no;
+    }
+    return ;
+}

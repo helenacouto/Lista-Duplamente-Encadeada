@@ -142,23 +142,23 @@ int main(void) {
         libera_lista(li);
     }
 
-    // /* ---------- Questao 7 ---------- */
-    // titulo("Q7 - inverte_lista em [1, 2, 3, 4, 5]");
-    // {
-    //     int m[] = {1, 2, 3, 4, 5};
-    //     li = monta(m, 5);
-    //     imprime("antes", li);
-    //     inverte_lista(li);
-    //     imprime("depois", li);
-    //     printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
+    /* ---------- Questao 7 ---------- */
+    titulo("Q7 - inverte_lista em [1, 2, 3, 4, 5]");
+    {
+        int m[] = {1, 2, 3, 4, 5};
+        li = monta(m, 5);
+        imprime("antes", li);
+        inverte_lista(li);
+        imprime("depois", li);
+        printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
 
-    //     li = cria_lista();
-    //     inverte_lista(li);                  /* nao pode travar */
-    //     inverte_lista(NULL);                /* nem esta */
-    //     printf("  vazia e NULL: sem travar\n");
-    //     libera_lista(li);
-    // }
+        li = cria_lista();
+        inverte_lista(li);
+        inverte_lista(NULL);
+        printf("  vazia e NULL: sem travar\n");
+        libera_lista(li);
+    }
 
     // /* ---------- Questao 8 ---------- */
     // titulo("Q8 - eh_palindromo");
