@@ -316,6 +316,10 @@ int remove_lista_pos(Lista *li, int pos) {
 }
 
 /* =========== QUESTÃO 5 =========== */
+/*
+Resposta:
+
+*/
 int move_para_inicio(Lista* li, int mat) {
     if (li == NULL || *li == NULL) return 0;
     if ((*li)->dados.matricula == mat) return 1;
@@ -335,4 +339,38 @@ int move_para_inicio(Lista* li, int mat) {
     (*li)->ant = no;
     *li = no;
     return 1;
+}
+
+/* =========== QUESTÃO 6 =========== */
+int remove_todos(Lista* li, int mat) {
+    if (li == NULL || *li == NULL) return 0;
+
+    Elem* no = *li, *ant = NULL;
+    int cont = 0;
+    while(no != NULL) {
+        if (no->dados.matricula == mat) {
+            if (ant != NULL) {
+                ant->prox = no->prox;
+
+                if (no->prox != NULL) no->prox->ant = ant;
+                
+                free(no);
+                no = ant->prox;
+
+                cont++;
+            } else {
+                *li = no->prox;
+                if (*li != NULL) (*li)->ant = NULL;  
+                free(no);
+                no = *li;
+
+                cont++;
+            }
+        } else {
+            ant = no;
+            no = no->prox;
+        }
+    }
+
+    return cont;
 }

@@ -123,24 +123,24 @@ int main(void) {
         libera_lista(li);
     }
 
-    // /* ---------- Questao 6 ---------- */
-    // titulo("Q6 - remove_todos(7)");
-    // {
-    //     int m[] = {7, 3, 7, 7, 5, 7};
-    //     int t[] = {7, 7, 7};
-    //     li = monta(m, 6);
-    //     imprime("antes", li);
-    //     printf("  devolve %d (esperado 4)\n", remove_todos(li, 7));
-    //     imprime("depois", li);
-    //     printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
-    //     libera_lista(li);
+    /* ---------- Questao 6 ---------- */
+    titulo("Q6 - remove_todos(7)");
+    {
+        int m[] = {7, 3, 7, 7, 5, 7};
+        int t[] = {7, 7, 7};
+        li = monta(m, 6);
+        imprime("antes", li);
+        printf("  devolve %d (esperado 4)\n", remove_todos(li, 7));
+        imprime("depois", li);
+        printf("  consistente=%d (esperado 1)\n", lista_consistente(li));
+        libera_lista(li);
 
-    //     li = monta(t, 3);
-    //     imprime("todos iguais a 7", li);
-    //     printf("  devolve %d (esperado 3)\n", remove_todos(li, 7));
-    //     imprime("depois", li);
-    //     libera_lista(li);
-    // }
+        li = monta(t, 3);
+        imprime("todos iguais a 7", li);
+        printf("  devolve %d (esperado 3)\n", remove_todos(li, 7));
+        imprime("depois", li);
+        libera_lista(li);
+    }
 
     // /* ---------- Questao 7 ---------- */
     // titulo("Q7 - inverte_lista em [1, 2, 3, 4, 5]");
