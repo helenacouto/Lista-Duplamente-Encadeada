@@ -160,31 +160,31 @@ int main(void) {
         libera_lista(li);
     }
 
-    // /* ---------- Questao 8 ---------- */
-    // titulo("Q8 - eh_palindromo");
-    // {
-    //     int p1[] = {1, 2, 3, 2, 1};         /* impar: 1 */
-    //     int p2[] = {4, 8, 8, 4};            /* par:   1 */
-    //     int p3[] = {1, 2, 2, 3};            /* nao:   0 */
-    //     int p4[] = {9};                     /* um:    1 */
+    /* ---------- Questao 8 ---------- */
+    titulo("Q8 - eh_palindromo");
+    {
+        int p1[] = {1, 2, 3, 2, 1};
+        int p2[] = {4, 8, 8, 4};
+        int p3[] = {1, 2, 2, 3};
+        int p4[] = {9};
 
-    //     li = monta(p1, 5);
-    //     printf("  1 2 3 2 1 -> %d (esperado 1)\n", eh_palindromo(li));
-    //     libera_lista(li);
-    //     li = monta(p2, 4);
-    //     printf("  4 8 8 4   -> %d (esperado 1)\n", eh_palindromo(li));
-    //     libera_lista(li);
-    //     li = monta(p3, 4);
-    //     printf("  1 2 2 3   -> %d (esperado 0)\n", eh_palindromo(li));
-    //     libera_lista(li);
-    //     li = monta(p4, 1);
-    //     printf("  9         -> %d (esperado 1)\n", eh_palindromo(li));
-    //     libera_lista(li);
-    //     li = cria_lista();
-    //     printf("  vazia     -> %d (esperado 1)\n", eh_palindromo(li));
-    //     libera_lista(li);
-    //     printf("  NULL      -> %d (esperado 0)\n", eh_palindromo(NULL));
-    // }
+        li = monta(p1, 5);
+        printf("  1 2 3 2 1 -> %d (esperado 1)\n", eh_palindromo(li));
+        libera_lista(li);
+        li = monta(p2, 4);
+        printf("  4 8 8 4   -> %d (esperado 1)\n", eh_palindromo(li));
+        libera_lista(li);
+        li = monta(p3, 4);
+        printf("  1 2 2 3   -> %d (esperado 0)\n", eh_palindromo(li));
+        libera_lista(li);
+        li = monta(p4, 1);
+        printf("  9         -> %d (esperado 1)\n", eh_palindromo(li));
+        libera_lista(li);
+        li = cria_lista();
+        printf("  vazia     -> %d (esperado 1)\n", eh_palindromo(li));
+        libera_lista(li);
+        printf("  NULL      -> %d (esperado 0)\n", eh_palindromo(NULL));
+    }
 
     printf("\n");
     return 0;

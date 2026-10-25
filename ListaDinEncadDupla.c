@@ -375,6 +375,7 @@ int remove_todos(Lista* li, int mat) {
     return cont;
 }
 
+/* =========== QUESTÃO 7 =========== */
 void inverte_lista(Lista* li) {
     if (li == NULL || *li == NULL) return;
 
@@ -392,5 +393,34 @@ void inverte_lista(Lista* li) {
         no->ant = NULL;
         *li = no;
     }
-    return ;
+    return;
+}
+
+/* =========== QUESTÃO 8 =========== */
+/*
+Resposta:
+
+*/
+int eh_palindromo(Lista *li) {
+    if (li == NULL) return 0;
+    if (*li == NULL) return 1;
+
+    Elem *inicio = *li, *final = *li;
+    
+    int n = 1;
+    while(final->prox != NULL) {
+        final = final->prox;
+        n++;
+    }
+    if (n == 1) return 1;
+
+    n = n/2;
+    for (int i = 0; i < n; i++) {
+        if (inicio->dados.matricula != final->dados.matricula) return 0;
+        else {
+            inicio = inicio->prox;
+            final = final->ant;
+        }
+    }
+    return 1;
 }
